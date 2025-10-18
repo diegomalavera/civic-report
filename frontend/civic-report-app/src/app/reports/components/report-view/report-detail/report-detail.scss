@@ -1,0 +1,38 @@
+.report {
+  padding-bottom: 52px;
+  .title {
+    display: flex;
+    margin-bottom: 24px;
+    h2 {
+      flex: 1;
+      margin-bottom: 0;
+      line-height: 1;
+    }
+    .status {
+      background-color: #ff6f3c;
+      border-radius: 6px;
+      color: #ffffff;
+      padding: 6px 12px;
+      line-height: 1;
+    }
+  }
+  .description {
+    margin-bottom: 24px;
+  }
+  .data {
+    margin-bottom: 24px;
+    .info {
+      display: flex;
+      margin-bottom: 12px;
+    }
+    span {
+      flex: 1 1 50%;
+    }
+    .label {
+      font-weight: bold;
+    }
+    .value {
+      text-align: right;
+    }
+  }
+}

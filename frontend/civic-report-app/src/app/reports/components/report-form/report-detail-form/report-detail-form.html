@@ -1,0 +1,32 @@
+<div class="report" animate.enter="fade-in">
+  <div class="report-form">
+    <form [formGroup]="form" (ngSubmit)="formSubmit()" autocomplete="off">
+      <div class="title">
+        <h2>Información del reporte</h2>
+      </div>
+      <div class="fields">
+        <div class="field">
+          <mat-form-field appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="name" type="text" id="name" autocomplete="name">
+            @if (form.controls['name'].hasError('required') ) {
+            <mat-error>El nombre es requerido.</mat-error>
+            }
+          </mat-form-field>
+        </div>
+        <div class="field">
+          <mat-form-field appearance="outline">
+            <mat-label>Descripción</mat-label>
+            <textarea matInput formControlName="description" id="description" autocomplete="description"></textarea>
+            @if (form.controls['description'].hasError('required') ) {
+            <mat-error>La descripción es requerida.</mat-error>
+            }
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="buttons">
+        <button matButton="filled">Siguiente</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Código de verificación</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f7;
+      padding: 20px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .otp {
+      background-color: #e7e7e7;
+      display: inline-block;
+      padding: 40px;
+      border-radius: 8px;
+      font-size: 28px;
+      letter-spacing: 8px;
+      font-weight: bold;
+      color: #007bff;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #888;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Tu código de verificación</h2>
+    <p>Usa el siguiente código para completar tu proceso de verificación.</p>
+
+    <div class="otp">{{otp}}</div>
+
+    <p>Este código expira en <b>5 minutos</b>. No lo compartas con nadie.</p>
+
+    <div class="footer">
+      ©2025 Reportes Comunitarios. Todos los derechos reservados.
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<div class="report">
+  @if (images.length > 0) {
+  <div class="report-gallery">
+    <div class="images">
+      @for(image of images; track $index) {
+      <div class="image" [class.active]="current() === $index" (click)="toggleFullscreen(image.url)">
+        <img [src]="image.url" [alt]="report.name">
+      </div>
+      }
+    </div>
+    @if (images.length > 1) {
+    <div class="prev" (click)="prev()">
+      <mat-icon aria-hidden="false" aria-label="Anterior" fontIcon="chevron_left"></mat-icon>
+    </div>
+    <div class="next" (click)="next()">
+      <mat-icon aria-hidden="false" aria-label="Siguiente" fontIcon="chevron_right"></mat-icon>
+    </div>
+    }
+  </div>
+  }
+</div>
+
+@if (isFullscreen()) {
+<div class="fullscreen-overlay" animate.enter="fade-in" animate.leave="fade-out" (click)="toggleFullscreen()">
+  <img [src]="fullscreenImage()" class="fullscreen-image" />
+</div>
+}
+
+<app-report-tabs></app-report-tabs>

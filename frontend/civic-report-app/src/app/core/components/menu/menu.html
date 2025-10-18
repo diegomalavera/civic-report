@@ -1,0 +1,26 @@
+<div class="menu">
+  <div class="info">
+    @if (pageService.user()) {
+    <div class="user">
+      <h3>{{ pageService.user().fullName }}</h3>
+      <p>{{ pageService.user().email }}</p>
+    </div>
+    }
+    <button matButton (click)="pageService.toggleSidenav()">
+      <mat-icon aria-hidden="false" aria-label="Volver atras" fontIcon="close_small"></mat-icon>
+    </button>
+  </div>
+  <div class="options">
+    @for (option of options; track $index) {
+    <div class="option" (click)="navigate(option)" [class.is-active]="isActive(option.route!)">
+      <div class="icon">
+        <mat-icon aria-hidden="false" aria-label="Volver atras" [fontIcon]="option.icon"></mat-icon>
+      </div>
+      <div class="text">
+        <h3>{{ option.title }}</h3>
+        <p>{{ option.description }}</p>
+      </div>
+    </div>
+    }
+  </div>
+</div>

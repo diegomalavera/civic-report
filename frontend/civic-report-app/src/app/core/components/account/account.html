@@ -1,0 +1,62 @@
+<div class="account" animate.enter="fade-in">
+  <div class="account-form">
+    <form [formGroup]="form" (ngSubmit)="formSubmit()" autocomplete="off">
+      <div class="fields">
+        <div class="field">
+          <mat-form-field appearance="outline">
+            <mat-label>Nombres</mat-label>
+            <input matInput formControlName="name" type="text" id="name" autocomplete="name">
+            @if (form.controls['name'].hasError('required') ) {
+            <mat-error>Los nombres son requeridos.</mat-error>
+            }
+          </mat-form-field>
+        </div>
+        <div class="field">
+          <mat-form-field appearance="outline">
+            <mat-label>Apellidos</mat-label>
+            <input matInput formControlName="lastName" type="text" id="lastName" autocomplete="lastName">
+            @if (form.controls['lastName'].hasError('required') ) {
+            <mat-error>Los apellidos son requeridos.</mat-error>
+            }
+          </mat-form-field>
+        </div>
+        <div class="field">
+          <mat-form-field appearance="outline">
+            <mat-label>Correo electrónico</mat-label>
+            <input matInput formControlName="email" type="text" id="email" autocomplete="email">
+            @if (form.controls['email'].hasError('required') ) {
+            <mat-error>El correo electrónico es requerido.</mat-error>
+            }
+            @if (form.controls['email'].hasError('email') ) {
+            <mat-error>El correo electrónico no es válido.</mat-error>
+            }
+          </mat-form-field>
+        </div>
+        <div class="field">
+          <mat-form-field appearance="outline">
+            <mat-label>Contraseña</mat-label>
+            <input matInput type="password" formControlName="password" id="password" autocomplete="new-password">
+          </mat-form-field>
+          @if (form.controls['password'].hasError('passwordWeak') ) {
+          <mat-error>La contraseña debe incluir +8 caracteres, 1 mayuscula, 1 caracter especial y 1
+            numero.</mat-error>
+          }
+        </div>
+        <div class="field">
+          <mat-form-field appearance="outline">
+            <mat-label>Confirmar contraseña</mat-label>
+            <input matInput type="password" formControlName="confirmPassword" id="confirmPassword"
+              autocomplete="new-password">
+            @if (form.controls['confirmPassword'].hasError('passwordsDontMatch')) {
+            <mat-error>Las contraseñas no coinciden.</mat-error>
+            }
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="buttons">
+        <button matButton="filled">Actualzar</button>
+      </div>
+    </form>
+  </div>
+  <app-validate-otp type="modal" [displayBackButton]="false" (validated)="emailValidated($event)"></app-validate-otp>
+</div>

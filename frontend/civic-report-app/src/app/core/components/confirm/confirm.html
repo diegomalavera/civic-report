@@ -1,0 +1,14 @@
+@if(confirmService.show()) {
+<div class="app-confirm" animate.enter="fade-in" animate.leave="fade-out">
+  <div class="confirm-content">
+    <div class="message">
+      <h2>{{ confirmService.title }}</h2>
+      <p>{{ confirmService.message }}</p>
+    </div>
+    <div class="buttons">
+      <button matButton (click)="cancel()" class="button">Cancelar</button>
+      <button matButton (click)="accept()" class="button">Aceptar</button>
+    </div>
+  </div>
+</div>
+}

@@ -1,0 +1,57 @@
+<div class="content-center login" animate.enter="fade-in">
+  <div class="logo">
+    <img src="logo/logo.svg" alt="Reportes comunitarios">
+  </div>
+  <div class="title">
+    <h1>Bienvenido</h1>
+  </div>
+  <div class="form">
+    <form [formGroup]="form" (ngSubmit)="formSubmit()">
+      <div class="fields">
+        <div class="field">
+          <mat-form-field appearance="outline">
+            <mat-label>Correo electrónico</mat-label>
+            <input matInput formControlName="email" type="text" id="email" autocomplete="email">
+            @if (form.controls['email'].hasError('required') ) {
+            <mat-error>El correo electrónico es requerido.</mat-error>
+            }
+            @if (form.controls['email'].hasError('email') ) {
+            <mat-error>El correo electrónico no es válido.</mat-error>
+            }
+          </mat-form-field>
+        </div>
+        <div class="field">
+          <mat-form-field appearance="outline">
+            <mat-label>Contraseña</mat-label>
+            <input matInput [type]="showPassword() ? 'password' : 'text'" formControlName="password" id="password"
+              autocomplete="password">
+            <mat-icon class="show-password" (click)="togglePassword($event)">{{showPassword() ? 'visibility_off' :
+              'visibility'}}</mat-icon>
+            @if (form.controls['password'].hasError('required') ) {
+            <mat-error>La contraseña es requerida.</mat-error>
+            }
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="buttons">
+        <button matButton="filled">Ingresar</button>
+      </div>
+    </form>
+  </div>
+  <div class="forgot-password">
+    <button matButton (click)="forgotPassword()">¿Olvidaste tu contraseña?</button>
+  </div>
+  <div class="register">
+    <div class="option">
+      <button matButton="outlined" (click)="register()">Registrate</button>
+    </div>
+    <!--div class="option">
+      <button matButton="outlined" (click)="googleLogin()">
+        <span class="google-icon">
+          <img src="icons/google.svg" alt="Google">
+        </span>
+        Continuar con google
+      </button>
+    </div-->
+  </div>
+</div>

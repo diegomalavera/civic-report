@@ -1,0 +1,69 @@
+.otp-field {
+  text-align: center;
+  .otp-input {
+    display: inline-block;
+    width: 36px;
+    height: 48px;
+    border: 1px solid #ccc;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    border-radius: 6px;
+    background: #f9f9f9;
+    margin: 0 6px;
+    text-transform: uppercase;
+  }
+  .mat-mdc-form-field-error {
+    display: block;
+    padding-top: 12px;
+    color: #93000a;
+  }
+}
+
+.otp-info {
+  text-align: center;
+  .otp-timer {
+    border-radius: 12px;
+    display: inline-block;
+    padding: 24px;
+    background: #ededed;
+  }
+  .opt-date {
+    font-size: 36px;
+    font-weight: 600;
+  }
+}
+
+.validate-otp-modal {
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 24px;
+  text-align: center;
+  z-index: 1000;
+  .close-button {
+    background-color: #007bff;
+    border-radius: 6px;
+    margin-left: auto;
+    min-width: 48px;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    color: #ffffff;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    .mat-icon {
+      margin: 0;
+      font-size: 48px;
+      width: 48px;
+      height: 48px;
+    }
+  }
+}

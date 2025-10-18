@@ -1,0 +1,98 @@
+.report {
+  .report-gallery {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    .images {
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      .image {
+        background-color: #ececec;
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        img {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
+        &.active {
+          opacity: 1;
+          position: relative;
+          z-index: 1;
+        }
+      }
+    }
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: bold;
+      background-color: #007bff;
+      border-radius: 50%;
+      z-index: 5;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .mat-icon {
+        color: #ffffff;
+        width: 32px;
+        font-size: 32px;
+        height: 32px;
+        line-height: 1;
+      }
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+  }
+}
+
+.fullscreen-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  cursor: zoom-out;
+  padding: 12px;
+  .fullscreen-image {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease-out both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

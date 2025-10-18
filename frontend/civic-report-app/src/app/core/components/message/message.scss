@@ -1,0 +1,23 @@
+.app-message {
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 24px;
+  text-align: center;
+  z-index: 2000;
+  .logo {
+    margin-bottom: 24px;
+    img {
+      width: 96px;
+    }
+  }
+  p {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,33 @@
+<div class="users" animate.enter="fade-in">
+  <div class="search">
+    <mat-form-field appearance="outline">
+      <input matInput type="text" id="search" autocomplete="new-search" placeholder="Buscar usuario"
+        (input)="search($event)" [(ngModel)]="searchValue">
+      <mat-icon class="icon-search">search</mat-icon>
+      @if (searchValue) {
+      <mat-icon class="close-search" (click)="clearSearch()">close</mat-icon>
+      }
+    </mat-form-field>
+  </div>
+  @if(usersFiltered.length > 0) {
+  <div class="items users-list">
+    @for (user of usersFiltered; track $index) {
+    <div class="item user" (click)="update(user.id)">
+      <h2>{{ user.fullName }}</h2>
+      @if (user.enabled) {
+      <p>Estado: Activo</p>
+      } @else {
+      <p>Estado: Inactivo</p>
+      }
+    </div>
+    }
+  </div>
+  } @else {
+  <div class="empty">
+    <p>No se encontraron resultados</p>
+  </div>
+  }
+  <div class="buttons">
+    <button matButton="filled" (click)="create()">Agregar</button>
+  </div>
+</div>

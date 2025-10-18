@@ -1,0 +1,89 @@
+@use '@angular/material' as mat;
+
+:root {
+  --mat-button-filled-container-height: 56px;
+  --mat-button-outlined-container-height: 56px;
+  --mat-button-outlined-touch-target-size: 56px;
+  --mat-button-text-container-height: 56px;
+}
+
+html {
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Poppins,
+      density: 0,
+    )
+  );
+}
+
+body {
+  color-scheme: light;
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+  margin: 0;
+}
+
+.mat-icon {
+  font-family: 'Material Icons Outlined';
+}
+
+.mat-mdc-form-field-bottom-align {
+  &::before {
+    content: none !important;
+  }
+}
+
+.mat-mdc-form-field-hint-wrapper,
+.mat-mdc-form-field-error-wrapper {
+  padding: 0 !important;
+  position: relative !important;
+}
+
+.mat-mdc-form-field-hint {
+  padding: 0 12px;
+  padding-top: 6px;
+}
+
+.mat-mdc-form-field-error {
+  padding: 0 12px;
+  padding-top: 6px;
+}
+
+.mdc-form-field--align-end {
+  > label {
+    padding-right: 12px !important;
+  }
+}
+
+@media (max-width: 599px) {
+  .cdk-overlay-pane.mat-mdc-dialog-panel {
+    width: 100% !important;
+    padding: 24px !important;
+  }
+}
+
+.mat-mdc-dialog-title {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+}
+
+.mat-mdc-dialog-content {
+  .fields {
+    margin-bottom: 0;
+  }
+}
+
+.mat-mdc-dialog-actions {
+  .buttons {
+    display: flex;
+    width: 100%;
+    .mdc-button {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+<div class="reports" animate.enter="fade-in">
+  <div class="search">
+    <mat-form-field appearance="outline">
+      <input matInput type="text" id="search" autocomplete="new-search" placeholder="Buscar reporte"
+        (input)="search($event)" [(ngModel)]="searchValue">
+      <mat-icon class="icon-search">search</mat-icon>
+      @if (searchValue) {
+      <mat-icon class="close-search" (click)="clearSearch()">close</mat-icon>
+      }
+    </mat-form-field>
+  </div>
+  @if(reportsFiltered.length > 0) {
+  <div class="items reports-list">
+    @for (report of reportsFiltered; track $index) {
+    <div class="item report" (click)="view(report.id)">
+      <h2>{{ report.name }}</h2>
+      <p>Estado: {{ report.status }}</p>
+    </div>
+    }
+  </div>
+  } @else {
+  <div class="empty">
+    <p>No se encontraron resultados</p>
+  </div>
+  }
+  @if(canAddReport) {
+  <div class="buttons">
+    <button matButton="filled" (click)="create()">Agregar</button>
+  </div>
+  }
+</div>

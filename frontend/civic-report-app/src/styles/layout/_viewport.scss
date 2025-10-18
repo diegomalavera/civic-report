@@ -1,0 +1,59 @@
+body {
+  padding-bottom: 48px;
+}
+
+.empty-layout-active {
+  padding-bottom: 0;
+  app-empty-layout,
+  app-change-password,
+  app-login,
+  app-register-data,
+  app-register-password,
+  app-validate-email,
+  app-validate-otp {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+  }
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+}
+
+app-main-layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.empty-layout {
+  min-height: 100dvh;
+}
+
+.main-layout {
+  .mat-drawer-container {
+    background-color: #ffffff;
+    min-height: calc(100dvh - 48px);
+    .mat-drawer {
+      top: 36px;
+    }
+    .mat-drawer-content {
+      .header {
+        padding-top: 48px;
+      }
+    }
+  }
+}
+
+.report {
+  .report-gallery {
+    height: calc(100dvh - 328px);
+  }
+  .report-add-photo {
+    height: calc(100dvh - 328px);
+  }
+  .report-map {
+    height: calc(100vh - 328px);
+  }
+}

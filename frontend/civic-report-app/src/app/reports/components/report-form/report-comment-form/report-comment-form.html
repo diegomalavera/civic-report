@@ -1,0 +1,26 @@
+<div class="report-comment">
+  <h2 mat-dialog-title>Agregar comentario</h2>
+  <form [formGroup]="form" (ngSubmit)="formSubmit()">
+    <mat-dialog-content>
+      <div class="report-form">
+        <div class="fields">
+          <div class="field">
+            <mat-form-field appearance="outline">
+              <mat-label>Descripción</mat-label>
+              <textarea matInput formControlName="message" id="message" autocomplete="message"></textarea>
+              @if (form.controls['message'].hasError('required') ) {
+              <mat-error>El mensaje es requerido.</mat-error>
+              }
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <div class="buttons">
+        <button matButton (click)="cancel()">Cancelar</button>
+        <button matButton>Guardar</button>
+      </div>
+    </mat-dialog-actions>
+  </form>
+</div>

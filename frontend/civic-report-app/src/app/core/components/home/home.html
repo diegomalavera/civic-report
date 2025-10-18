@@ -1,0 +1,15 @@
+<div class="home" animate.enter="fade-in">
+  <div class="options">
+    @for (option of options; track $index) {
+    <div class="option" (click)="navigate(option.route)">
+      <div class="icon">
+        <mat-icon aria-hidden="false" aria-label="Volver atras" [fontIcon]="option.icon"></mat-icon>
+      </div>
+      <div class="info">
+        <h2>{{ option.title }}</h2>
+        <p>{{ option.description }}</p>
+      </div>
+    </div>
+    }
+  </div>
+</div>

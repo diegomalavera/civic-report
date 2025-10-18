@@ -1,0 +1,13 @@
+<div class="main-layout">
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="over">
+      <app-menu></app-menu>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <app-header></app-header>
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

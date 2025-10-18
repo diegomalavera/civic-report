@@ -1,0 +1,35 @@
+<div class="report">
+  @if (images.length > 0) {
+  <div class="report-gallery">
+    <div class="images">
+      @for(image of images; track $index) {
+      <div class="image" [class.active]="current() === $index">
+        <img [src]="image.url" [alt]="image.name">
+      </div>
+      }
+    </div>
+    @if (images.length > 1) {
+    <div class="prev" (click)="prev()">
+      <mat-icon aria-hidden="false" aria-label="Anterior" fontIcon="chevron_left"></mat-icon>
+    </div>
+    <div class="next" (click)="next()">
+      <mat-icon aria-hidden="false" aria-label="Siguiente" fontIcon="chevron_right"></mat-icon>
+    </div>
+    }
+    <div class="report-add-photo">
+      <button matButton="filled" (click)="takePicture()">
+        <mat-icon class="add-photo">add_a_photo</mat-icon>
+      </button>
+    </div>
+  </div>
+  } @else {
+  <div class="report-add-photo">
+    <button matButton="filled" (click)="takePicture()">
+      <mat-icon class="add-photo">add_a_photo</mat-icon>
+    </button>
+  </div>
+  }
+  <div class="buttons">
+    <button matButton="filled" (click)="save()">Siguiente</button>
+  </div>
+</div>

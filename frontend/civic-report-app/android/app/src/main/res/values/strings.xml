@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Reportes Comunitarios</string>
+    <string name="title_activity_main">Reportes Comunitarios</string>
+    <string name="package_name">com.diegomalavera.civicreportapp</string>
+    <string name="custom_url_scheme">com.diegomalavera.civicreportapp</string>
+</resources>

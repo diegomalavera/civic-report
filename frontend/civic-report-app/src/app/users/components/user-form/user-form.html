@@ -1,0 +1,79 @@
+<div class="role" animate.enter="fade-in">
+  <div class="role-form">
+    <form [formGroup]="form" (ngSubmit)="formSubmit()" autocomplete="off">
+      <div class="fields">
+        <div class="field">
+          <mat-form-field appearance="outline">
+            <mat-label>Nombres</mat-label>
+            <input matInput formControlName="name" type="text" id="name" autocomplete="name">
+            @if (form.controls['name'].hasError('required') ) {
+            <mat-error>El nombre es requerido.</mat-error>
+            }
+          </mat-form-field>
+        </div>
+        <div class="field">
+          <mat-form-field appearance="outline">
+            <mat-label>Apellidos</mat-label>
+            <input matInput formControlName="lastName" type="text" id="lastName" autocomplete="lastName">
+            @if (form.controls['lastName'].hasError('required') ) {
+            <mat-error>El nombre es requerido.</mat-error>
+            }
+          </mat-form-field>
+        </div>
+        <div class="field">
+          <mat-form-field appearance="outline">
+            <mat-label>Correo electrónico</mat-label>
+            <input matInput formControlName="email" type="text" id="email" autocomplete="email">
+            @if (form.controls['email'].hasError('required') ) {
+            <mat-error>El nombre es requerido.</mat-error>
+            }
+            @if (form.controls['email'].hasError('email') ) {
+            <mat-error>El correo electrónico no es válido.</mat-error>
+            }
+          </mat-form-field>
+        </div>
+        <div class="field">
+          <mat-form-field appearance="outline">
+            <mat-label>Contraseña</mat-label>
+            <input matInput [type]="showPassword() ? 'password' : 'text'" formControlName="password" id="password"
+              autocomplete="new-password">
+            <mat-icon class="show-password" (click)="togglePassword($event)">{{showPassword() ? 'visibility_off' :
+              'visibility'}}</mat-icon>
+            @if (form.controls['password'].hasError('required') ) {
+            <mat-error>La contraseña es requerida.</mat-error>
+            }
+            @if (form.controls['password'].hasError('passwordWeak') ) {
+            <mat-error>La contraseña debe incluir +8 caracteres, 1 mayuscula, 1 caracter especial y 1
+              numero.</mat-error>
+            }
+          </mat-form-field>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <mat-slide-toggle formControlName="enabled" labelPosition="before">Estado</mat-slide-toggle>
+          </div>
+          <div class="field">
+            <mat-slide-toggle formControlName="protected" labelPosition="before">Protegido</mat-slide-toggle>
+          </div>
+        </div>
+        <div class="field">
+          <mat-form-field>
+            <mat-label>Roles</mat-label>
+            <mat-select formControlName="roleIds" multiple>
+              @for (role of roles; track $index) {
+              <mat-option [value]="role.id">{{role.name}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="buttons">
+        <button matButton="filled">Guardar</button>
+        @if(type == 'update') {
+        <button matButton="filled" type="button" class="button-delete" (click)="delete()">Eliminar</button>
+        }
+      </div>
+    </form>
+  </div>
+</div>
+<app-confirm (accepted)="deleteConfirmed($event)"></app-confirm>

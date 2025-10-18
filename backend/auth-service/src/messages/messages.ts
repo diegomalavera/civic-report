@@ -1,0 +1,15 @@
+export const Messages = {
+  ROLES_SERVICE_UNAVAILABLE: `El servicio de roles no esta disponible.`,
+  USERS_SERVICE_UNAVAILABLE: `El servicio de usuarios no esta disponible.`,
+  INVALID_CREDENTIALS: `El usuario o la contraseña son incorrectas.`,
+  USER_ALREADY_EXIST: `El usuario ya se encuentra registrado.`,
+  OTP_SENT: `Se ha enviado un código de verificación a su dirección de correo electrónico.`,
+  OTP_ERROR: `El código de verificación que ingresaste es incorrecto. Revisa tu correo electrónico y vuelve a intentarlo.`,
+  OTP_EXPIRED: `Su código de verificación ha caducado o no es válido. Solicite un nuevo código.`,
+  EMAIL_VERIFIED: `Su correo electrónico ha sido verificado exitosamente.`,
+  PASSWORD_MISMATCH: `Las contraseñas no coinciden.`,
+  PASSWORD_UPDATED: `La contraseña se cambió correctamente.`,
+  USER_NOT_FOUND: `El usuario no se encuentra registrado.`,
+  USER_EMAIL_ALREADY_EXIST: `El correo electrónico ya se encuentra registrado.`,
+  USER_DISABLED: `El usuario se encuentra deshabilitado.`,
+};

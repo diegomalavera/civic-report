@@ -1,0 +1,38 @@
+<div class="report">
+  <div class="title">
+    <h2>{{ report.name }}</h2>
+    <span class="status">{{ report.status }}</span>
+  </div>
+  <div class="description">
+    <p>{{ report.description }}</p>
+  </div>
+  <div class="data">
+    <div class="info">
+      <span class="label">Ciudad:</span>
+      <span class="value">{{ report.city }}</span>
+    </div>
+    <div class="info">
+      <span class="label">Departamento:</span>
+      <span class="value">{{ report.city }}</span>
+    </div>
+    <div class="info">
+      <span class="label">País:</span>
+      <span class="value">{{ report.country }}</span>
+    </div>
+    <div class="info">
+      <span class="label">dirección:</span>
+      <span class="value">{{ report.address }}</span>
+    </div>
+    <div class="info">
+      <span class="label">Fecha reporte:</span>
+      <span class="value">{{ report.createdAt | date }}</span>
+    </div>
+  </div>
+  @if(canChangeStatus) {
+  <div class="buttons">
+    <button type="button" matButton="filled" (click)="changeStatus()">Cambiar estado</button>
+  </div>
+  }
+</div>
+
+<app-report-tabs></app-report-tabs>

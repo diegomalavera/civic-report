@@ -1,0 +1,28 @@
+<div class="report">
+  @if(comments.length > 0) {
+  <div class="report-comments">
+    @for(comment of comments; track $index) {
+    <div class="comment">
+      <div class="info">
+        <span class="author">{{ comment.author }}</span>
+        <span class="date">{{ comment.createdAt | date }}</span>
+      </div>
+      <div class="text">
+        <p>{{ comment.message }}</p>
+      </div>
+    </div>
+    }
+  </div>
+  } @else {
+  <div class="empty">
+    <p>No se encontraron comentarios</p>
+  </div>
+  }
+  @if(canAddComment) {
+  <div class="buttons">
+    <button type="button" matButton="filled" (click)="addComment()">Agregar comentario</button>
+  </div>
+  }
+</div>
+
+<app-report-tabs></app-report-tabs>

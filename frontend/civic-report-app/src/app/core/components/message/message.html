@@ -1,0 +1,8 @@
+@if(messageService.show()) {
+<div class="app-message" animate.enter="fade-in" animate.leave="fade-out">
+  <div class="logo">
+    <img src="logo/logo.svg" alt="Reportes Comunitarios">
+  </div>
+  <p [innerHTML]="messageService.message"></p>
+</div>
+}

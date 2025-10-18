@@ -1,0 +1,50 @@
+.search {
+  margin-bottom: 24px;
+  .mat-mdc-text-field-wrapper {
+    background-color: #ededed;
+    border-color: #ededed;
+  }
+  .mat-mdc-notch-piece {
+    border-color: #ededed !important;
+  }
+  .icon-search {
+    position: absolute;
+    right: 0;
+    font-size: 30px !important;
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .close-search {
+    position: absolute;
+    right: 30px;
+    font-size: 30px !important;
+    width: 30px !important;
+    height: 30px !important;
+  }
+}
+
+.items {
+  margin-bottom: 24px;
+  .item {
+    background-color: #ededed;
+    padding: 24px;
+    margin-bottom: 24px;
+    border-radius: 12px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &:active {
+      background: rgba(0, 123, 255, 0.2);
+    }
+    h2 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+  }
+}
+
+.empty {
+  padding: 24px;
+  text-align: center;
+  margin-bottom: 24px;
+}

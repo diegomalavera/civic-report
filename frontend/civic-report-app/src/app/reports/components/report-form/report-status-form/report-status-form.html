@@ -1,0 +1,31 @@
+<div class="report-comment">
+  <h2 mat-dialog-title>Agregar comentario</h2>
+  <form [formGroup]="form" (ngSubmit)="formSubmit()">
+    <mat-dialog-content>
+      <div class="report-form">
+        <div class="fields">
+          <div class="field">
+            <mat-form-field>
+              <mat-label>Estado</mat-label>
+              <mat-select formControlName="status">
+                <mat-option value="Procesando">Procesando</mat-option>
+                <mat-option value="En curso">En curso</mat-option>
+                <mat-option value="Finalizado">Finalizado</mat-option>
+                <mat-option value="Rechazado">Rechazado</mat-option>
+              </mat-select>
+              @if (form.controls['status'].hasError('required') ) {
+              <mat-error>El estado es requerido.</mat-error>
+              }
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <div class="buttons">
+        <button matButton (click)="cancel()">Cancelar</button>
+        <button matButton>Guardar</button>
+      </div>
+    </mat-dialog-actions>
+  </form>
+</div>

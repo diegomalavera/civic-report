@@ -1,0 +1,26 @@
+.report {
+  padding-bottom: 52px;
+  .report-comments {
+    margin-bottom: 24px;
+    .comment {
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e0e2ec;
+      &:last-child {
+        margin-bottom: 0;
+        border-bottom: none;
+      }
+      .info {
+        display: flex;
+        font-weight: bold;
+        margin-bottom: 12px;
+        span {
+          flex: 1 1 50%;
+          &.date {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+.fields {
+  margin-bottom: 24px;
+  .field {
+    margin-bottom: 24px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.buttons {
+  .button-delete {
+    background-color: #FF0055 !important;
+  }
+  .mdc-button {
+    margin-bottom: 12px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.field-row {
+  margin-bottom: 24px;
+  display: flex;
+  .field {
+    margin-bottom: 0;
+    text-align: center;
+    flex: 1;
+  }
+}
+
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+.mdc-button {
+  width: 100%;
+}
+
+.show-password {
+  position: absolute;
+  right: 0;
+  font-size: 30px !important;
+  width: 30px !important;
+  height: 30px !important;
+}

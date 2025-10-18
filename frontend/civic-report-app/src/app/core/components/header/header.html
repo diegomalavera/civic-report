@@ -1,0 +1,18 @@
+<div class="header">
+  <div class="actions">
+    @if (pageService.previous) {
+    <button matButton (click)="pageService.goToPrevius()">
+      <mat-icon aria-hidden="false" aria-label="Volver atras" fontIcon="arrow_back"></mat-icon>
+    </button>
+    }
+    <button matButton (click)="pageService.toggleSidenav()">
+      <mat-icon aria-hidden="false" aria-label="Menú" fontIcon="menu"></mat-icon>
+    </button>
+    <button matButton routerLink="/app/account" class="account">
+      <mat-icon aria-hidden="false" aria-label="Tu cuenta" fontIcon="account_circle"></mat-icon>
+    </button>
+  </div>
+  <div class="title">
+    <h1>{{ pageService.title() }}</h1>
+  </div>
+</div>

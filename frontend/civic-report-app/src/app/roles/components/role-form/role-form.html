@@ -1,0 +1,75 @@
+<div class="role" animate.enter="fade-in">
+  <div class="role-form">
+    <form [formGroup]="form" (ngSubmit)="formSubmit()" autocomplete="off">
+      <div class="fields">
+        <div class="field">
+          <mat-form-field appearance="outline">
+            <mat-label>Nombres</mat-label>
+            <input matInput formControlName="name" type="text" id="name" autocomplete="name">
+            @if (form.controls['name'].hasError('required') ) {
+            <mat-error>El nombre es requerido.</mat-error>
+            }
+          </mat-form-field>
+        </div>
+        <div class="field">
+          <mat-form-field appearance="outline">
+            <mat-label>Código</mat-label>
+            <input matInput formControlName="code" type="text" id="code" autocomplete="code">
+            @if (form.controls['code'].hasError('required') ) {
+            <mat-error>El código es requerido.</mat-error>
+            }
+          </mat-form-field>
+        </div>
+        <div class="field">
+          <mat-form-field appearance="outline">
+            <mat-label>Descripción</mat-label>
+            <textarea matInput formControlName="description" id="description" autocomplete="description"></textarea>
+            @if (form.controls['description'].hasError('required') ) {
+            <mat-error>La descripción es requerida.</mat-error>
+            }
+          </mat-form-field>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <mat-slide-toggle formControlName="enabled" labelPosition="before">Estado</mat-slide-toggle>
+          </div>
+          <div class="field">
+            <mat-slide-toggle formControlName="protected" labelPosition="before">Protegido</mat-slide-toggle>
+          </div>
+        </div>
+
+        <div class="permissions" formGroupName="permissions">
+          <table>
+            <thead>
+              <tr>
+                <th>Opción</th>
+                <th>Crear</th>
+                <th>Leer</th>
+                <th>Actualizar</th>
+                <th>Eliminar</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for(option of options; track $index) {
+              <tr>
+                <td>{{ option.name }}</td>
+                <td><mat-slide-toggle formControlName="{{option.code}}_create" /></td>
+                <td><mat-slide-toggle formControlName="{{option.code}}_read" /></td>
+                <td><mat-slide-toggle formControlName="{{option.code}}_update" /></td>
+                <td><mat-slide-toggle formControlName="{{option.code}}_delete" /></td>
+              </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="buttons">
+        <button matButton="filled">Guardar</button>
+        @if(type == 'update') {
+        <button matButton="filled" type="button" class="button-delete" (click)="deleteRole()">Eliminar</button>
+        }
+      </div>
+    </form>
+  </div>
+</div>
+<app-confirm (accepted)="delete($event)"></app-confirm>

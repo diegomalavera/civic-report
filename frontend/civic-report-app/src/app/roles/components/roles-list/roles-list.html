@@ -1,0 +1,33 @@
+<div class="roles" animate.enter="fade-in">
+  <div class="search">
+    <mat-form-field appearance="outline">
+      <input matInput type="text" id="search" autocomplete="new-search" placeholder="Buscar rol"
+        (input)="search($event)" [(ngModel)]="searchValue">
+      <mat-icon class="icon-search">search</mat-icon>
+      @if (searchValue) {
+      <mat-icon class="close-search" (click)="clearSearch()">close</mat-icon>
+      }
+    </mat-form-field>
+  </div>
+  @if(rolesFiltered.length > 0) {
+  <div class="items roles-list">
+    @for (rol of rolesFiltered; track $index) {
+    <div class="item role" (click)="update(rol.id)">
+      <h2>{{ rol.name }}</h2>
+      @if (rol.enabled) {
+      <p>Estado: Activo</p>
+      } @else {
+      <p>Estado: Inactivo</p>
+      }
+    </div>
+    }
+  </div>
+  } @else {
+  <div class="empty">
+    <p>No se encontraron resultados</p>
+  </div>
+  }
+  <div class="buttons">
+    <button matButton="filled" (click)="create()">Agregar</button>
+  </div>
+</div>

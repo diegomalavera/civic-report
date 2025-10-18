@@ -1,0 +1,39 @@
+.tabs {
+  background-color: #ffffff;
+  display: flex;
+  position: fixed;
+  right: 0;
+  bottom: 48px;
+  width: 100%;
+  .tab {
+    width: 25%;
+    text-align: center;
+    a {
+      border-top: 1px solid #E0E2EC;
+      padding: 6px 0;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      overflow: hidden;
+      &.is-active {
+        border-color: #007BFF;
+        color: #007BFF;
+      }
+    }
+    .icon {
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+    .mat-icon {
+      margin: 0;
+      width: 24px;
+      height: 24px;
+      font-size: 24px;
+      line-height: 1;
+    }
+    .name {
+      font-size: 10px;
+      line-height: 1;
+    }
+  }
+}

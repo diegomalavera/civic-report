@@ -1,0 +1,16 @@
+.account {
+  .validate-otp-modal {
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 24px;
+    text-align: center;
+    z-index: 1000;
+  }
+}

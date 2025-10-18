@@ -1,0 +1,125 @@
+services:
+  mongodb:
+    build: ./mongodb
+    image: civic-report/mongodb
+    container_name: mongodb
+    ports:
+      - "${MONGO_PORT}:${MONGO_PORT}"
+    environment:
+      - MONGODB_INITDB_ROOT_USERNAME=${MONGODB_INITDB_ROOT_USERNAME}
+      - MONGODB_INITDB_ROOT_PASSWORD=${MONGODB_INITDB_ROOT_PASSWORD}
+    volumes:
+      - mongodb-volume:/data/db
+    networks:
+      - civic-report-network
+
+  auth-service:
+    build: ./auth-service
+    image: civic-report/auth-service
+    container_name: auth-service
+    environment:
+      - PORT=${AUTH_PORT}
+      - MONGODB_URI=${MONGODB_URI}
+      - JWT_SECRET=${JWT_SECRET}
+      - JWT_EXPIRES_IN=${JWT_EXPIRES_IN}
+      - JWT_ACCESS_TOKEN_EXPIRES_IN=${JWT_ACCESS_TOKEN_EXPIRES_IN}
+      - JWT_REFRESH_TOKEN_EXPIRES_IN=${JWT_REFRESH_TOKEN_EXPIRES_IN}
+      - JWT_INTERNAL_ACCESS_TOKEN_EXPIRES_IN=${JWT_INTERNAL_ACCESS_TOKEN_EXPIRES_IN}
+      - JWT_ISSUER=${JWT_ISSUER}
+      - JWT_AUDIENCE=${JWT_AUDIENCE}
+      - MAIL_HOST=${MAIL_HOST}
+      - MAIL_PORT=${MAIL_PORT}
+      - MAIL_SECURE=${MAIL_SECURE}
+      - MAIL_USER=${MAIL_USER}
+      - MAIL_PASSWORD=${MAIL_PASSWORD}
+      - MAIL_FROM=${MAIL_FROM}
+      - ROLES_SERVICE_ENDPOINT=${ROLES_SERVICE_ENDPOINT}
+      - USERS_SERVICE_ENDPOINT=${USERS_SERVICE_ENDPOINT}
+    depends_on:
+      mongodb:
+        condition: service_started
+    ports:
+      - "${AUTH_PORT}:${AUTH_PORT}"
+    networks:
+      - civic-report-network
+
+  roles-service:
+    build: ./roles-service
+    image: civic-report/roles-service
+    container_name: roles-service
+    environment:
+      - PORT=${ROLES_PORT}
+      - MONGODB_URI=${MONGODB_URI}
+      - JWT_SECRET=${JWT_SECRET}
+      - JWT_EXPIRES_IN=${JWT_EXPIRES_IN}
+      - JWT_ACCESS_TOKEN_EXPIRES_IN=${JWT_ACCESS_TOKEN_EXPIRES_IN}
+      - JWT_REFRESH_TOKEN_EXPIRES_IN=${JWT_REFRESH_TOKEN_EXPIRES_IN}
+      - JWT_INTERNAL_ACCESS_TOKEN_EXPIRES_IN=${JWT_INTERNAL_ACCESS_TOKEN_EXPIRES_IN}
+      - JWT_ISSUER=${JWT_ISSUER}
+      - JWT_AUDIENCE=${JWT_AUDIENCE}
+      - USERS_SERVICE_ENDPOINT=${USERS_SERVICE_ENDPOINT}
+    depends_on:
+      mongodb:
+        condition: service_started
+    ports:
+      - "${ROLES_PORT}:${ROLES_PORT}"
+    networks:
+      - civic-report-network
+
+  users-service:
+    build: ./users-service
+    image: civic-report/users-service
+    container_name: users-service
+    environment:
+      - PORT=${USERS_PORT}
+      - MONGODB_URI=${MONGODB_URI}
+      - JWT_SECRET=${JWT_SECRET}
+      - JWT_EXPIRES_IN=${JWT_EXPIRES_IN}
+      - JWT_ACCESS_TOKEN_EXPIRES_IN=${JWT_ACCESS_TOKEN_EXPIRES_IN}
+      - JWT_REFRESH_TOKEN_EXPIRES_IN=${JWT_REFRESH_TOKEN_EXPIRES_IN}
+      - JWT_INTERNAL_ACCESS_TOKEN_EXPIRES_IN=${JWT_INTERNAL_ACCESS_TOKEN_EXPIRES_IN}
+      - JWT_ISSUER=${JWT_ISSUER}
+      - JWT_AUDIENCE=${JWT_AUDIENCE}
+      - ROLES_SERVICE_ENDPOINT=${ROLES_SERVICE_ENDPOINT}
+    depends_on:
+      mongodb:
+        condition: service_started
+    ports:
+      - "${USERS_PORT}:${USERS_PORT}"
+    networks:
+      - civic-report-network
+
+  reports-service:
+    build: ./reports-service
+    image: civic-report/reports-service
+    container_name: reports-service
+    environment:
+      - PORT=${REPORTS_PORT}
+      - MONGODB_URI=${MONGODB_URI}
+      - JWT_SECRET=${JWT_SECRET}
+      - JWT_EXPIRES_IN=${JWT_EXPIRES_IN}
+      - JWT_ACCESS_TOKEN_EXPIRES_IN=${JWT_ACCESS_TOKEN_EXPIRES_IN}
+      - JWT_REFRESH_TOKEN_EXPIRES_IN=${JWT_REFRESH_TOKEN_EXPIRES_IN}
+      - JWT_INTERNAL_ACCESS_TOKEN_EXPIRES_IN=${JWT_INTERNAL_ACCESS_TOKEN_EXPIRES_IN}
+      - JWT_ISSUER=${JWT_ISSUER}
+      - JWT_AUDIENCE=${JWT_AUDIENCE}
+      - ROLES_SERVICE_ENDPOINT=${ROLES_SERVICE_ENDPOINT}
+      - USERS_SERVICE_ENDPOINT=${USERS_SERVICE_ENDPOINT}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_REGION=${AWS_REGION}
+      - AWS_S3_BUCKET=${AWS_S3_BUCKET}
+    depends_on:
+      mongodb:
+        condition: service_started
+    ports:
+      - "${REPORTS_PORT}:${REPORTS_PORT}"
+    networks:
+      - civic-report-network
+
+volumes:
+  mongodb-volume:
+
+networks:
+  civic-report-network:
+    driver: bridge

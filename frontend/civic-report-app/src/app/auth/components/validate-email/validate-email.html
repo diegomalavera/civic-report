@@ -1,0 +1,30 @@
+<app-back-button route="/auth/login"></app-back-button>
+<div class="content-center validate-email" animate.enter="fade-in">
+  <div class="title">
+    <h1>Ingresa tu correo electronico</h1>
+  </div>
+  <div class="description">
+    <p>Enviaremos un código de verificación a tu correo electrónico.</p>
+  </div>
+  <div class="form">
+    <form [formGroup]="form" (ngSubmit)="formSubmit()">
+      <div class="fields">
+        <div class="field">
+          <mat-form-field appearance="outline">
+            <mat-label>Correo electrónico</mat-label>
+            <input matInput formControlName="email" type="text" id="email" autocomplete="email">
+            @if (form.controls['email'].hasError('required') ) {
+            <mat-error>El correo electrónico es requerido.</mat-error>
+            }
+            @if (form.controls['email'].hasError('email') ) {
+            <mat-error>El correo electrónico no es válido.</mat-error>
+            }
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="buttons">
+        <button matButton="filled">Siguiente</button>
+      </div>
+    </form>
+  </div>
+</div>

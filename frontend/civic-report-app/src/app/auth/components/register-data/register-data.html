@@ -1,0 +1,33 @@
+<app-back-button route="auth/register-password"></app-back-button>
+<div class="content-center register-data" animate.enter="fade-in">
+  <div class="title">
+    <h1>Cuales son tus nombres</h1>
+  </div>
+  <div class="form">
+    <form [formGroup]="form" (ngSubmit)="formSubmit()">
+      <div class="fields">
+        <div class="field">
+          <mat-form-field appearance="outline">
+            <mat-label>Nombres</mat-label>
+            <input matInput formControlName="name" type="text" id="name" autocomplete="name">
+            @if (form.controls['name'].hasError('required') ) {
+            <mat-error>Los nombres son requeridos.</mat-error>
+            }
+          </mat-form-field>
+        </div>
+        <div class="field">
+          <mat-form-field appearance="outline">
+            <mat-label>Apellidos</mat-label>
+            <input matInput formControlName="lastName" type="text" id="lastName" autocomplete="lastName">
+            @if (form.controls['lastName'].hasError('required') ) {
+            <mat-error>Los Apellidos son requeridos.</mat-error>
+            }
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="buttons">
+        <button matButton="filled">Siguiente</button>
+      </div>
+    </form>
+  </div>
+</div>

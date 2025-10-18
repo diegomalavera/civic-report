@@ -1,0 +1,16 @@
+<div class="report">
+  <div class="report-map">
+    <google-map width="100%" height="100%" [center]="center" [zoom]="zoom" [mapId]="mapId"
+      (mapClick)="mapClick($event)">
+      @if (markerPosition){
+      <map-advanced-marker #marker [position]="markerPosition" title="Marcador del usuario"></map-advanced-marker>
+      }
+    </google-map>
+    <button class="user-location" (click)="userLocation()">
+      <mat-icon>location_searching</mat-icon>
+    </button>
+  </div>
+  <div class="buttons">
+    <button matButton="filled" (click)="next()">Siguiente</button>
+  </div>
+</div>
